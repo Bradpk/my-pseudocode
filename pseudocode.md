@@ -9,6 +9,14 @@ Boiled Water into Mug with Teabag
 Add Milk 
 Stir
 
+Rules
+1. Write one statement per line
+2. Capitalize initial keywords (READ, WRITE, IF, WHILE, UNTIL).
+3. Indent to show hierarchy.
+4. End multi line structure.
+5. Keep statements language agnostic.
+
+
 
 BEGIN
   INITIALIZE  

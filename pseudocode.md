@@ -1,13 +1,12 @@
 Thinking aloud 
-Whats needed: Mug, Water, TeaBag, Milk (Variables)
+Whats needed: Patron, Elevator, Control Panel, Floor Buttons
 
 What needs to be done: (Functions) 
-Water boiled 
-Teabag put in Mug
-Boiled Water into Mug with Teabag 
---Time Elapse for Teabag to steep-- (Loop)
-Add Milk 
-Stir
+Outside button to open door to enter elevator
+Elevator moves up and down
+Buttons move to floor associated with button number on click
+Doors open and shut
+Time elapses for patron to enter or leave elevator
 
 Rules
 1. Write one statement per line

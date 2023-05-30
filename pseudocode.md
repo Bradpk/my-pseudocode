@@ -7,6 +7,9 @@ Elevator moves up and down
 Buttons move to floor associated with button number on click
 Doors open and shut
 Time elapses for patron to enter or leave elevator
+Needs to track current floor number to know whether the button input in lower or higher than current floor
+Move up if button number is higher than current floor, or goes down if button number is lower than current floor (if else statement) 
+keeps going up or down until floor number is reached (loop)
 
 Rules
 1. Write one statement per line

@@ -25,7 +25,7 @@ Patron:
 
   functions:
     floorSelection
-    doorSlector
+    doorButton
     
     
 Elevator:
@@ -76,7 +76,7 @@ Rules
 BEGIN
   INITIALIZE  
   
-  Patron.doorSelection('open')
+  Patron.doorButton('open')
   
   OutsideControlPanel.openClose('open')
   
@@ -86,11 +86,11 @@ BEGIN
   
   InsideControlPanel.selectionMade(5)
   
-  DO Elevator.moveup WHILE currentFloor < floorSelected
-  DO Elevator.movedown WHILE currentFloor > floorSelected
+  Elevator.doorOpenClose('close')
   
+  DO Elevator.moveup() WHILE currentFloor < floorSelected
+  DO Elevator.movedown() WHILE currentFloor > floorSelected
   
-  
-  
+  Elevator.doorOpenClose('open')
 
 END

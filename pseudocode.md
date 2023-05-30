@@ -1,5 +1,5 @@
 Thinking aloud 
-Whats needed: Patron, Elevator, Control Panel, Floor Buttons
+Whats needed: Patron, Elevator, Control Panel, Floor Buttons, Open door button
 
 What needs to be done: (Functions) 
 Outside button to open door to enter elevator

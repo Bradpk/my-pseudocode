@@ -15,11 +15,11 @@ Process:
 
   3. Door panel lights up 
   
-  4. Lifting system moves to the current floor of the patron 
+  4. Lifting system moves the elevator to the floor of the patron 
   
   5. Elevator Door Opens 
   
-  6. Patron selects floor on control panel 
+  6. Patron selects floor from an array of buttons on control panel 
   
   7. The control panel registers a selection has been made 
 

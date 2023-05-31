@@ -1,6 +1,4 @@
-
-
-
+Building A Virtual Elevator 
 
 Rules:
 1. Write one statement per line
@@ -8,8 +6,6 @@ Rules:
 3. Indent to show hierarchy.
 4. End multi line structure.
 5. Keep statements language agnostic.
-
-Objects & Data Structures
 
 Process:
  
@@ -37,7 +33,8 @@ Process:
   
   12. The elevator door opens 
 
-Elevator: 
+INITIALIZE: Variables
+
    Door Panel:
         - A single button (on or off) 
         - A display panel, button lights up when pressed 

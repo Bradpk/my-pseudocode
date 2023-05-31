@@ -9,44 +9,37 @@ Rules:
 
 Process:
  
-  1. Patron presses the open door button on door panel
-  
-  2. Door panel registers door button has been pushed
-
-  3. Door panel lights up 
-  
-  4. Lifting system moves the elevator to the floor of the patron 
-  
-  5. Elevator Door Opens 
-  
-  6. Patron selects floor from an array of buttons on the control panel 
-  
-  7. The control panel registers a selection has been made 
-
-  8. Selected Floor Button Lights Up 
-  
-  9. The Elevator door shuts
-  
-  10. The elevator moves to the floor selected on the control panel
-      
-  11. When the current floor matches the floor the patron selected the elevator stops    
-  
-  12. The elevator door opens 
+1. Patron pushes the open door button on door panel
+2. Door panel registers door button has been pushed
+3. Door panel lights up 
+4. Lifting system moves the elevator compartment to the floor the patron is on
+5. Elevator door opens 
+6. Patron selects floor from an array of buttons on the control panel 
+7. The control panel registers a selection has been made 
+8. The selected floor button lights up 
+9. Elevator door shuts
+10. The elevator moves to the floor selected on the control panel 
+11. When the current floor matches the floor the patron selected the elevator stops    
+12. The elevator door opens 
 
 INITIALIZE: Variables
 
    Door Panel:
-        - A single button (on or off) 
-        - A display panel, button lights up when pressed 
+        - A single button (on/off) 
+        - A display panel with a button that lights up when pressed 
+        - Checks whether a selection has been made
+        - Tracks Floor Location Of Itself
      
    Control Panel 
         - An array of buttons corisponding to different floors
-        - A display panel, buttons light up when pressed
+        - A display panel with buttons that light up when pressed
+        - Checks whether a selection has been made
         
-   Lifting System
-        - Pulley that lift the elevator
-        - Pulley that can lower the elevaotr 
+   Elevator Compartment 
+        - Pulley that lifts the elevator
+        - Pulley that can lowers the elevaotr 
         - Pulley that can stop the elevator
+        - Tracks Current Floor Of Itself
         
    Elevator Door
         - Open Door
@@ -55,56 +48,75 @@ INITIALIZE: Variables
    Patron:
        - Selects the button on the door panel 
        - Selects a floor button on the control panel
+       - Trakcs Floor Location Of Itself
     
 ---------------------------------------------------------------
 BEGIN
 
   INITIALIZE()
+  Elevator Floor: 10
+  Patron Floor: 1
+  Door Panel Light: Off
+  Elevator Door: Closed
   
-  1. Patron presses the open door button on outside control panel
-  - Set door button to pushed
-  READ Patron.doorButton('true')
+  1. Patron pushes the door panel button
+ SET Patron.doorButton = on
   
-  IF Patron.doorButton = 'true' THEN DoorPanel.selectionMade = 'true' AND doorpanel.light = 'true'
+  2. Door panel registers door button has been pushed
+ IF Patron.doorButton = on
+   THEN DoorPanel.selectionMade = true
+   ELSE DoorPanel.selectionMade = false
   
-  If doorpanel.selectionMade = 'true' THEN Lifting System = current floor AND door opens 
-  Else door opens 
+  3. Door panel button lights up 
+  IF DoorPanel.selectionMade = true
+  THEN DoorPanel.light = on
+  ELSE DoorPanel.light = off
   
-  READ Patron.controlpanel[5] 
+  4. Lifting system moves the elevator compartment to the floor the patron is on
+  IF DoorPanel.selectionMade = 'true' 
+  THEN:
+  FOR ElevatorCompartment.floor[] > Patron.floor[] 
+  THEN: 
+  ElevatorCompartment = move down
+  FOR ElevatorCompartment.floor[] > Patron.floor[] 
+  THEN: 
+  ElevatorCompartment = move up
   
-  If co
+   5. Elevator door opens 
+   IF ElevatorCompartment.floor[] = Patron.floor[] 
+   THEN: 
+   ElevatorDoor = open
+   
+   6. Patron selects floor from an array of buttons on the control panel 
+   SET Patron.controlPanel = [7]
+   
+   7. The control panel registers a selection has been made 
+   IF Patron.controlPanel = true
+   THEN ControlPanel.selectionMade = true
+   ELSE ControlPanel.selectionMade = false
+   
+  8. The selected floor button lights up 
+  IF Patron.controlPanel = [7] AND ControlPanel.selectionMade = true
+  THEN ControlPanel.light[7] = on
   
+  9. Elevator door shuts
+  IF ControlPanel.selectionMade = true 
+  THEN ElevatorDoor = close
   
-  2. Control panel registers door button has been pushed and moves to the elevator to the floor level of the patron and opens the door
-  IF door button is "true" THEN lifting system is set to current floor AND elevator door is set to "true" 
-  READ OutsideControlPanel.doorButtonPressed('pressed)
-  
-  Lifting system moves to the current floor of the patron 
-  
-  Elevator Door Opens 
-  
-  4. Patron selects floor on inside control panel 
-  INPUT Patron.floorSelection(5)
-  
-  5. The inside control panel registers a selection has been made and the selected floor button lights up.
-  READ InsideControlPanel.selectionMade(5)
-  
-  6. The Elevator door shuts
-  ElevatorDoor.openClose('close')
-  
-  7. The elevator moves up if the floor selection is higher than the current floor
-  IF (currentFloor < floorSelected)
-      THEN LiftingSystem.moveup()
-      
-  8. The elevator moves down if the floor selection is lower than the current floor    
-  ELSE If (currentFloor > floorSelected)
-      THEN Lifting System.movedown() 
-      
-  9. When the current floor matches the floor the patron selected the elevator stops    
-  ELSE Lifting System.stop() 
-  
-  10. The elevator door opens once the selected floor matches the current floor and the elevator has come to a halt
-  Elevator.doorOpenClose('open')
+   10. The elevator moves to the floor selected on the control panel
+   FOR ElevatorCompartment.floor[] > Patron.controlPanel[7] 
+  THEN: 
+  ElevatorCompartment move down
+  FOR ElevatorCompartment.floor[] < Patron.Controlpanel[7] 
+  THEN: 
+  ElevatorCompartment move up
+   
+   11. When the current floor matches the floor the patron selected the elevator stops   
+   IF ElevatorCompartment.floor[] === Patron.Controlpanel[7] 
+   THEN ElevatorCompartment = stop
+   
+   12. The elevator door opens 
+   
 
 END
 -----------------------------------------------------------------

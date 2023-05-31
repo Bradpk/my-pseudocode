@@ -52,9 +52,9 @@ INITIALIZE: Variables
         - Open Door
         - Close Door
     
-Patron:
-    - Selects the button on the door panel 
-    - Selects a floor button on the control panel
+   Patron:
+       - Selects the button on the door panel 
+       - Selects a floor button on the control panel
     
 ---------------------------------------------------------------
 BEGIN
@@ -108,15 +108,6 @@ BEGIN
 
 END
 -----------------------------------------------------------------
-Objects and Functions
-
-INITIALIZE function
-CREATE Elevator 
-CREATE Patron
-CREATE Door Panel
-CREATE Control Panel 
-CREATE Lifting System
-CREATE Current Floor
 
 Patron
   INIT:

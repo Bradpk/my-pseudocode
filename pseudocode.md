@@ -53,8 +53,11 @@ BEGIN
   
   ElevatorDoor.openClose('close')
   
-  DO LiftingSystem.moveup() WHILE currentFloor < floorSelected
-  DO Lifting System.movedown() WHILE currentFloor > floorSelected
+  DO LiftingSystem.moveup() 
+      WHILE currentFloor < floorSelected
+      
+  DO Lifting System.movedown() 
+      WHILE currentFloor > floorSelected
   
   Elevator.doorOpenClose('open')
 

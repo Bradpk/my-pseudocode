@@ -24,28 +24,28 @@
 
 ## INITIALIZE: Variables
 
-   Door Panel:
+  ### Door Panel:
         - A single button (on/off) 
         - A display panel with a button that lights up when pressed 
         - Checks whether a selection has been made
         - Tracks Floor Location Of Itself
      
-   Control Panel 
+  ### Control Panel 
         - An array of buttons corisponding to different floors
         - A display panel with buttons that light up when pressed
         - Checks whether a selection has been made
         
-   Elevator Compartment 
+  ### Elevator Compartment 
         - Pulley that lifts the elevator
         - Pulley that can lowers the elevaotr 
         - Pulley that can stop the elevator
         - Tracks Current Floor Of Itself
         
-   Elevator Door
+  ### Elevator Door
         - Open Door
         - Close Door
     
-   Patron:
+   ### Patron:
        - Selects the button on the door panel 
        - Selects a floor button on the control panel
        - Trakcs Floor Location Of Itself

@@ -1,3 +1,7 @@
+
+
+
+
 Rules:
 1. Write one statement per line
 2. Capitalize initial keywords (READ, WRITE, IF, WHILE, UNTIL).
@@ -7,25 +11,53 @@ Rules:
 
 Objects & Data Structures
 
+Process:
+ 
+  1. Patron presses the open door button on door panel
+  
+  2. Door panel registers door button has been pushed
+
+  3. Door panel lights up 
+  
+  4. Lifting system moves to the current floor of the patron 
+  
+  5. Elevator Door Opens 
+  
+  6. Patron selects floor on control panel 
+  
+  7. The control panel registers a selection has been made 
+
+  8. Selected Floor Button Lights Up 
+  
+  9. The Elevator door shuts
+  
+  10. The elevator moves to the floor selected on the control panel
+      
+  11. When the current floor matches the floor the patron selected the elevator stops    
+  
+  12. The elevator door opens 
+
 Elevator: 
-   Outside Control Panel:
-        - A single onPress button 
+   Door Panel:
+        - A single button (on or off) 
         - A display panel, button lights up when pressed 
      
-   Inside Control Panel 
+   Control Panel 
         - An array of buttons corisponding to different floors
-        - Each button requires an onPress button
         - A display panel, buttons light up when pressed
         
    Lifting System
-        - Pulley that lifts or lowers the elevator based off selection made by the control panels
+        - Pulley that lift the elevator
+        - Pulley that can lower the elevaotr 
+        - Pulley that can stop the elevator
         
    Elevator Door
-        - Opens and Closes door
+        - Open Door
+        - Close Door
     
 Patron:
-    - Presses the button on the outside control panel 
-    - Selects a floor on the inside control panel
+    - Selects the button on the door panel 
+    - Selects a floor button on the control panel
     
 ---------------------------------------------------------------
 BEGIN
@@ -33,18 +65,21 @@ BEGIN
   INITIALIZE()
   
   1. Patron presses the open door button on outside control panel
-  INPUT Patron.pressDoorButton('pushed')
+  - Set door button to pushed
+  INPUT Patron.doorButton('true')
   
-  2. Control panel registers door button has been pushed and moves to the floor level of the patron
+  2. Control panel registers door button has been pushed and moves to the elevator to the floor level of the patron and opens the door
+  IF door button is "true" THEN lifting system is set to current floor AND elevator door is set to "true" 
   READ OutsideControlPanel.doorButtonPressed('pressed)
   
-  3. The Elevator door opens
-   ElevatorDoor.openClose('open')
+  Lifting system moves to the current floor of the patron 
+  
+  Elevator Door Opens 
   
   4. Patron selects floor on inside control panel 
   INPUT Patron.floorSelection(5)
   
-  5. The inside control panel registers a selection has been made and the selected button lights up
+  5. The inside control panel registers a selection has been made and the selected floor button lights up.
   READ InsideControlPanel.selectionMade(5)
   
   6. The Elevator door shuts
@@ -78,7 +113,7 @@ CREATE Current Floor
 
 Patron
   INIT:
-  pressDoorButton
+  doorButton
   floorSelection
  
 Outside Control Panel 
@@ -87,7 +122,7 @@ Outside Control Panel
  
 Elevator Door
   INIT:
-  openClose
+  doorSensor
  
 Inside Control Panel 
   INIT:

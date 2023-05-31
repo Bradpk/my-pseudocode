@@ -19,7 +19,7 @@ Process:
   
   5. Elevator Door Opens 
   
-  6. Patron selects floor from an array of buttons on control panel 
+  6. Patron selects floor from an array of buttons on the control panel 
   
   7. The control panel registers a selection has been made 
 

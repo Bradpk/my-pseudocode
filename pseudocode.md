@@ -55,14 +55,14 @@
 
 
 INITIALIZE()
-Elevator Compartment Floor: 10
-Patron Floor: 1
-Door Panel Light: Off
-Door Panel Floor: 1
-Door Panel Selection: False
-Elevator Door: Closed
-Control Panel Light: Off
-Control Panel Selection: False
+Elevator Compartment Floor: 10 <br>
+Patron Floor: 1 <br>
+Door Panel Light: Off <br>
+Door Panel Floor: 1 <br>
+Door Panel Selection: False <br>
+Elevator Door: Closed <br>
+Control Panel Light: Off <br>
+Control Panel Selection: False <br>
   
 1. Patron pushes the door panel button <br>
 &nbsp; SET Patron.doorButton = on

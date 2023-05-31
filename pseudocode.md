@@ -1,12 +1,3 @@
-Process: 
-1. Patron presses the open door button on outside control panel
-2. The Elevator door opens
-3. Patron selects floor on inside control panel 
-4. The Elevator door shuts
-5. The elevator moves up or down depending on the floor selection in relation to the current floor
-6. When the current floor matches the floor the patron selected the elevator stops
-7. The Elevator door opens 
-
 Rules:
 1. Write one statement per line
 2. Capitalize initial keywords (READ, WRITE, IF, WHILE, UNTIL).
@@ -41,24 +32,36 @@ BEGIN
 
   INITIALIZE()
   
+  1. Patron presses the open door button on outside control panel
   INPUT Patron.pressDoorButton('pushed')
   
+  2. Control panel registers door button has been pushed and moves to the floor level of the patron
   READ OutsideControlPanel.doorButtonPressed('pressed)
   
+  3. The Elevator door opens
    ElevatorDoor.openClose('open')
   
+  4. Patron selects floor on inside control panel 
   INPUT Patron.floorSelection(5)
   
+  5. The inside control panel registers a selection has been made and the selected button lights up
   READ InsideControlPanel.selectionMade(5)
   
+  6. The Elevator door shuts
   ElevatorDoor.openClose('close')
   
-  DO LiftingSystem.moveup() 
-      WHILE currentFloor < floorSelected
+  7. The elevator moves up if the floor selection is higher than the current floor
+  IF (currentFloor < floorSelected)
+      THEN LiftingSystem.moveup()
       
-  DO Lifting System.movedown() 
-      WHILE currentFloor > floorSelected
+  8. The elevator moves down if the floor selection is lower than the current floor    
+  ELSE If (currentFloor > floorSelected)
+      THEN Lifting System.movedown() 
+      
+  9. When the current floor matches the floor the patron selected the elevator stops    
+  ELSE Lifting System.stop() 
   
+  10. The elevator door opens once the selected floor matches the current floor and the elevator has come to a halt
   Elevator.doorOpenClose('open')
 
 END
@@ -94,5 +97,6 @@ Lifting System
   INIT:
   moveUp
   moveDown
+  stop
   
   

@@ -38,6 +38,7 @@ Patron:
     
 ---------------------------------------------------------------
 BEGIN
+
   INITIALIZE()
   
   INPUT Patron.pressDoorButton('pushed')

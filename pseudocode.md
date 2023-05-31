@@ -38,18 +38,17 @@ Patron:
     
 ---------------------------------------------------------------
 BEGIN
-  INITIALIZE
-    Current Floor = 1
+  INITIALIZE()
   
-  Patron.pressDoorButton('open')
+  INPUT Patron.pressDoorButton('pushed')
   
-  OutsideControlPanel.doorButtonPressed('open')
+  READ OutsideControlPanel.doorButtonPressed('pressed)
   
-  ElevatorDoor.openClose('open')
+   ElevatorDoor.openClose('open')
   
-  Patron.floorSelection(5)
+  INPUT Patron.floorSelection(5)
   
-  InsideControlPanel.selectionMade(5)
+  READ InsideControlPanel.selectionMade(5)
   
   ElevatorDoor.openClose('close')
   
@@ -62,7 +61,7 @@ END
 -----------------------------------------------------------------
 Objects and Functions
 
-INIT function
+INITIALIZE function
 CREATE Elevator 
 CREATE Patron
 CREATE Outside Control Panel
@@ -71,19 +70,24 @@ CREATE Lifting System
 CREATE Current Floor
 
 Patron
+  INIT:
   pressDoorButton
   floorSelection
  
 Outside Control Panel 
+  INIT:
   doorbuttonPressed
  
 Elevator Door
+  INIT:
   openClose
  
 Inside Control Panel 
+  INIT:
   selectionMade
  
 Lifting System
+  INIT:
   moveUp
   moveDown
   

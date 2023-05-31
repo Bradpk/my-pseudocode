@@ -66,7 +66,17 @@ BEGIN
   
   1. Patron presses the open door button on outside control panel
   - Set door button to pushed
-  INPUT Patron.doorButton('true')
+  READ Patron.doorButton('true')
+  
+  IF Patron.doorButton = 'true' THEN DoorPanel.selectionMade = 'true' AND doorpanel.light = 'true'
+  
+  If doorpanel.selectionMade = 'true' THEN Lifting System = current floor AND door opens 
+  Else door opens 
+  
+  READ Patron.controlpanel[5] 
+  
+  If co
+  
   
   2. Control panel registers door button has been pushed and moves to the elevator to the floor level of the patron and opens the door
   IF door button is "true" THEN lifting system is set to current floor AND elevator door is set to "true" 
@@ -106,8 +116,8 @@ Objects and Functions
 INITIALIZE function
 CREATE Elevator 
 CREATE Patron
-CREATE Outside Control Panel
-CREATE Inside Control Panel 
+CREATE Door Panel
+CREATE Control Panel 
 CREATE Lifting System
 CREATE Current Floor
 

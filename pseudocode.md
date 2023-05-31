@@ -1,13 +1,13 @@
-Building A Virtual Elevator 
+# Building A Virtual Elevator 
 
-Rules:
+## Rules:
 1. Write one statement per line
 2. Capitalize initial keywords (READ, WRITE, IF, WHILE, UNTIL).
 3. Indent to show hierarchy.
 4. End multi line structure.
 5. Keep statements language agnostic.
 
-Process:
+## Process:
  
 1. Patron pushes the open door button on door panel
 2. Door panel registers door button has been pushed
@@ -22,7 +22,7 @@ Process:
 11. When the current floor matches the floor the patron selected the elevator stops    
 12. The elevator door opens 
 
-INITIALIZE: Variables
+## INITIALIZE: Variables
 
    Door Panel:
         - A single button (on/off) 
@@ -51,7 +51,7 @@ INITIALIZE: Variables
        - Trakcs Floor Location Of Itself
     
 ---------------------------------------------------------------
-BEGIN
+## BEGIN
 
 INITIALIZE()
 Elevator Compartment Floor: 10
@@ -131,30 +131,5 @@ Control Panel Selection: False
   SET ElevatorDoor = open
    
    
-END
+## END
 -----------------------------------------------------------------
-
-Patron
-  INIT:
-  doorButton
-  floorSelection
- 
-Outside Control Panel 
-  INIT:
-  doorbuttonPressed
- 
-Elevator Door
-  INIT:
-  doorSensor
- 
-Inside Control Panel 
-  INIT:
-  selectionMade
- 
-Lifting System
-  INIT:
-  moveUp
-  moveDown
-  stop
-  
-  

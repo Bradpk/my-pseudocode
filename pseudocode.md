@@ -2,7 +2,7 @@
 
 ## Rules:
 1. Write one statement per line
-2. Capitalize initial keywords (READ, WRITE, IF, WHILE, UNTIL).
+2. Capitalize initial keywords (READ, WRITE, IF, WHILE, UNTIL etc).
 3. Indent to show hierarchy.
 4. End multi line structure.
 5. Keep statements language agnostic.

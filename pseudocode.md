@@ -28,7 +28,7 @@
         - A single button (on/off) 
         - A display panel with a button that lights up when pressed 
         - Checks whether a selection has been made
-        - Tracks Floor Location Of Itself
+        - Tracks floor location of itself
      
   ### Control Panel 
         - An array of buttons corisponding to different floors
@@ -37,18 +37,18 @@
         
   ### Elevator Compartment 
         - Pulley that lifts the elevator
-        - Pulley that can lowers the elevaotr 
+        - Pulley that lowers the elevaotr 
         - Pulley that can stop the elevator
-        - Tracks Current Floor Of Itself
+        - Tracks floor of itself
         
   ### Elevator Door
-        - Open Door
-        - Close Door
+        - Open door
+        - Close door
     
    ### Patron:
        - Selects the button on the door panel 
-       - Selects a floor button on the control panel
-       - Trakcs Floor Location Of Itself
+       - Selects a button on the control panel
+       - Trakcs floor location of itself
     
 ---------------------------------------------------------------
 ## BEGIN

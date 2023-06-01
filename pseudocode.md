@@ -54,7 +54,7 @@
 ## BEGIN
 
 
-INITIALIZE()
+INITIALIZE() <br>
 Elevator Compartment Floor: 10 <br>
 Patron Floor: 1 <br>
 Door Panel Light: Off <br>

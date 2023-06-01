@@ -70,14 +70,14 @@ Control Panel Selection: False <br>
 2. Door panel registers door button has been pushed <br>
 &nbsp; IF Patron.doorButton = on <br>
 &nbsp; &nbsp; THEN: <br>
-&nbsp; &nbsp; DoorPanel.selectionMade = true <br>
+&nbsp; &nbsp; SET DoorPanel.selectionMade = true <br>
 &nbsp; &nbsp; ELSE DoorPanel.selectionMade = false <br>
 &nbsp; &nbsp; &nbsp; END
   
 3. Door panel button lights up <br>
 &nbsp; IF DoorPanel.selectionMade = true <br>
 &nbsp; &nbsp; THEN: <br>
-&nbsp; &nbsp; DoorPanel.light = on <br>
+&nbsp; &nbsp; SET DoorPanel.light = on <br>
 &nbsp; &nbsp; ELSE DoorPanel.light = off <br>
 &nbsp; &nbsp; &nbsp; END
   
@@ -86,7 +86,7 @@ Control Panel Selection: False <br>
 &nbsp; &nbsp; THEN: <br>
 &nbsp; &nbsp; FOR ElevatorCompartment.floor[] > Patron.floor[] <br>
 &nbsp; &nbsp; &nbsp; THEN: <br>
-&nbsp; &nbsp; &nbsp; ElevatorCompartment = move down <br>
+&nbsp; &nbsp; &nbsp; SET ElevatorCompartment = move down <br>
 &nbsp; &nbsp; &nbsp; FOR ElevatorCompartment.floor[] > Patron.floor[] <br>
 &nbsp; &nbsp; &nbsp; &nbsp; THEN: <br>
 &nbsp; &nbsp; &nbsp; &nbsp; SET ElevatorCompartment = move up <br>
@@ -104,26 +104,26 @@ Control Panel Selection: False <br>
 7. The control panel registers a selection has been made <br>
 &nbsp; IF Patron.controlPanel = true <br>
 &nbsp; &nbsp; THEN: <br>
-&nbsp; &nbsp; ControlPanel.selectionMade = true <br>
+&nbsp; &nbsp; SET ControlPanel.selectionMade = true <br>
 &nbsp; &nbsp; &nbsp; ELSE ControlPanel.selectionMade = false <br>
 &nbsp; &nbsp; &nbsp; &nbsp; END
    
 8. The selected floor button lights up <br>
 &nbsp; IF Patron.controlPanel = [7] AND ControlPanel.selectionMade = true <br>
 &nbsp; &nbsp; THEN: <br>
-&nbsp; &nbsp; ControlPanel.light[7] = on <br>
+&nbsp; &nbsp; SET ControlPanel.light[7] = on <br>
 &nbsp; &nbsp; &nbsp; END
   
 9. Elevator door shuts <br>
 &nbsp; IF ControlPanel.selectionMade = true <br>
 &nbsp; &nbsp; THEN: <br>
-&nbsp; &nbsp; ElevatorDoor = close <br>
+&nbsp; &nbsp; SET ElevatorDoor = close <br>
 &nbsp; &nbsp; &nbsp; END
   
 10. The elevator moves to the floor selected on the control panel <br>
 &nbsp; FOR ElevatorCompartment.floor[] > Patron.controlPanel[7] <br>
 &nbsp; &nbsp; THEN: <br>
-&nbsp; &nbsp; ElevatorCompartment move down <br>
+&nbsp; &nbsp; SET ElevatorCompartment = move down <br>
 &nbsp; &nbsp; FOR ElevatorCompartment.floor[] < Patron.Controlpanel[7] <br>
 &nbsp; &nbsp; &nbsp; THEN: <br>
 &nbsp; &nbsp; &nbsp; SET ElevatorCompartment = move up <br>
@@ -132,7 +132,7 @@ Control Panel Selection: False <br>
 11. When the current floor matches the floor the patron selected the elevator stops <br>
 &nbsp; IF ElevatorCompartment.floor[] = Patron.Controlpanel[7] <br>
 &nbsp; &nbsp; THEN: <br>
-&nbsp; &nbsp; ElevatorCompartment = stop <br>
+&nbsp; &nbsp; SET ElevatorCompartment = stop <br>
 &nbsp; &nbsp; &nbsp; END
    
 12. The elevator door opens <br>
